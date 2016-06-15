@@ -1,4 +1,5 @@
 #include <utility>
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <array>
@@ -35,6 +36,9 @@ struct array
     template<typename ...Type>
     array(Type... t) { init(data, t...); };
 
+    int* begin() { return NULL;}
+    int* end() { return NULL;}
+
 
     void out()
     {
@@ -56,6 +60,8 @@ int main()
    b.out();
 
    my::array<std::string, 1> str("hello");
+
+   std::copy(a.begin(), a.end(), b.begin());
 
    return 0;
 }
